@@ -1,0 +1,114 @@
+﻿<Window x:Class="wpf4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="422" Width="446.4">
+    <StackPanel Margin="20">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Width="350">
+                    <CheckBox Name="cbAlpha" 
+                              Content="Alpha:" 
+                              VerticalAlignment="Center" 
+                              HorizontalAlignment="Left" 
+                              HorizontalContentAlignment="Right" 
+                              Width="55"
+                              Click="Cb_Checked"/>
+                    <Label Width="30" HorizontalContentAlignment="Center" Content="{Binding ElementName=slAlpha, Path=Value}"/>
+                    <Slider Name="slAlpha" 
+                            Width="255" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            Value="0"
+                            VerticalAlignment="Center"
+                            TickFrequency="1"
+                            IsSnapToTickEnabled="True"
+                            IsEnabled="{Binding ElementName=cbAlpha, Path=IsChecked}"
+                            IsEnabledChanged="Slider_IsEnabledChanged"
+                            ValueChanged="Slider_ValueChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="350">
+                    <CheckBox Name="cbRed" 
+                              Content="Red:" 
+                              VerticalAlignment="Center" 
+                              HorizontalAlignment="Left" 
+                              HorizontalContentAlignment="Right" 
+                              Width="55"/>
+                    <Label Width="30" HorizontalContentAlignment="Center" Content="{Binding ElementName=slRed, Path=Value}"/>
+                    <Slider Name="slRed" 
+                            Width="255" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            Value="0"
+                            VerticalAlignment="Center"
+                            TickFrequency="1"
+                            IsSnapToTickEnabled="True"
+                            IsEnabled="{Binding ElementName=cbRed, Path=IsChecked}"
+                            IsEnabledChanged="Slider_IsEnabledChanged"
+                            ValueChanged="Slider_ValueChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="350">
+                    <CheckBox Name="cbGreen" 
+                              Content="Green:" 
+                              VerticalAlignment="Center" 
+                              HorizontalAlignment="Left" 
+                              HorizontalContentAlignment="Right" 
+                              Width="55"/>
+                    <Label Width="30" HorizontalContentAlignment="Center" Content="{Binding ElementName=slGreen, Path=Value}"/>
+                    <Slider Name="slGreen" 
+                            Width="255" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            Value="0"
+                            VerticalAlignment="Center"
+                            TickFrequency="1"
+                            IsSnapToTickEnabled="True"
+                            IsEnabled="{Binding ElementName=cbGreen, Path=IsChecked}"
+                            IsEnabledChanged="Slider_IsEnabledChanged"
+                            ValueChanged="Slider_ValueChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="350">
+                    <CheckBox Name="cbBlue" 
+                              Content="Blue:" 
+                              VerticalAlignment="Center" 
+                              HorizontalAlignment="Left" 
+                              HorizontalContentAlignment="Right" 
+                              Width="55"/>
+                    <Label Width="30" HorizontalContentAlignment="Center" Content="{Binding ElementName=slBlue, Path=Value}"/>
+                    <Slider Name="slBlue" 
+                            Width="255" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            Value="0"
+                            VerticalAlignment="Center"
+                            TickFrequency="1"
+                            IsSnapToTickEnabled="True"
+                            IsEnabled="{Binding ElementName=cbBlue, Path=IsChecked}"
+                            IsEnabledChanged="Slider_IsEnabledChanged"
+                            ValueChanged="Slider_ValueChanged"/>
+                </StackPanel>
+            </StackPanel>
+            <Rectangle Name="rectangle" Width="42" Height="Auto" Stroke="LightGray"/>
+        </StackPanel>
+        <Button HorizontalAlignment="Left" 
+                Width="100" 
+                Margin="0 5 0 10" 
+                Click="Add_Click"
+                Content="Add"
+                Name="btAdd"/>
+        <ListBox Name="lbColors" Height="202" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="80" Content="{Binding Hex}"/>
+                        <Rectangle Width="235" Fill="{Binding Color}"/>
+                        <Button Content="Delete" Margin="10 0 0 0" Width="50" Click="Delete_Click"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>
