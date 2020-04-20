@@ -104,7 +104,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Label Width="80" Content="{Binding Hex}"/>
-                        <Rectangle Width="235" Fill="{Binding Color}"/>
+                        <Rectangle Width="220" Fill="{Binding Color}"/>
                         <Button Content="Delete" Margin="10 0 0 0" Width="50" Click="Delete_Click"/>
                     </StackPanel>
                 </DataTemplate>
